@@ -38,23 +38,27 @@ function App() {
     }
   }, [inputValue])
 
-  const fetchResponse = async () => {
-    const response = await RateFetchAPI.get("/convert",{
-      params : {
-        q : `${leftSelectedCountry}_${rightSelectedCountry}`
-      }
-    })
-    const rateValue = response.data[`${leftSelectedCountry}_${rightSelectedCountry}`]
-    setRate(rateValue);
-    setOutputValue(rateValue*inputValue)
-  }
+  
 
   useEffect(() => {
+    const fetchResponse = async () => {
+      const response = await RateFetchAPI.get("/convert",{
+        params : {
+          q : `${leftSelectedCountry}_${rightSelectedCountry}`
+        }
+      })
+      const rateValue = response.data[`${leftSelectedCountry}_${rightSelectedCountry}`]
+      setRate(rateValue);
+    }
     if(debouncedValue){
       fetchResponse();
     }
     
   }, [debouncedValue, leftSelectedCountry, rightSelectedCountry])
+
+  useEffect(() => {
+    setOutputValue(rate);
+  }, [rate])
 
 
   return (
@@ -104,7 +108,7 @@ function App() {
               </div>
               <div className="col">
                 <div style={{marginTop:"11px"}}>
-                  <Textbox value={outputValue} setValue={setOutputValue}/>
+                  <Textbox value={outputValue*inputValue} setValue={setOutputValue}/>
                 </div>
               </div>
             </div>

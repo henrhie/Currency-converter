@@ -9,17 +9,17 @@ export default ({countryList, selectedCountry, setSelectedCountry}) => {
 
   const renderedList = countryList.map((element) => {
     return (
-      <button class="dropdown-item" type="button" value={element.id} onClick={onItemClick}>{element.id}</button>
+      <button className="dropdown-item" key={element.id} type="button" value={element.id} onClick={onItemClick}>{element.id}</button>
     )
   })
 
 
   return (
-    <div class="btn">
-      <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+    <div className="btn">
+      <button className="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
         {selectedCountry}
       </button>
-      <div class="dropdown-menu">
+      <div className="dropdown-menu">
         {renderedList}
       </div>
     </div>
