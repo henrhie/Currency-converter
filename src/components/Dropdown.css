@@ -1,0 +1,8 @@
+.dropdown-custom {
+    width: 150px;
+}
+
+.dropdown-menu {
+    max-height: 120px;
+    overflow-y: scroll;
+}
