@@ -90,7 +90,7 @@ function App() {
             <div className="grid-element">
               <div className="col">
                 <div style={{marginTop:"11px"}}>
-                  <Textbox value={inputValue} setValue={setInputValue}/>
+                  <Textbox value={inputValue} setValue={setInputValue} autofocus={true} label={"Convert from"}/>
                 </div>
               </div>
               <div className="col">
@@ -108,7 +108,7 @@ function App() {
               </div>
               <div className="col">
                 <div style={{marginTop:"11px"}}>
-                  <Textbox value={outputValue*inputValue} setValue={setOutputValue}/>
+                  <Textbox value={outputValue*inputValue} setValue={setOutputValue} label={"Convert to"}/>
                 </div>
               </div>
             </div>
